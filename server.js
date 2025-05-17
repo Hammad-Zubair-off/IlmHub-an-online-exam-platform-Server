@@ -4,12 +4,25 @@ const dotenv = require("dotenv");
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./swagger.yaml');
+const cors = require('cors');
 
 // Load .env file from root directory
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
 const app = express();
 app.use(express.json());
+
+// CORS configuration
+app.use(cors({
+  origin: [
+    'https://ilm-hub-an-online-exam-platform.vercel.app',
+    'http://localhost:3000'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const dbConfig = require("./config/dbConfig");
 
 const usersRoute = require("./routes/usersRoute");
