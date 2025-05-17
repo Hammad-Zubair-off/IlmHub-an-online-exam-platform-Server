@@ -15,7 +15,7 @@ app.use(express.json());
 // CORS configuration
 app.use(cors({
   origin: [
-    'https://ilm-hub-an-online-exam-platform.vercel.app',
+    'https://ilm-hub-an-online-exam-platform-client.vercel.app',
     'http://localhost:3000'
   ],
   credentials: true,
