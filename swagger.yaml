@@ -5,7 +5,7 @@ info:
   description: API for a quiz website built with Express and MongoDB
 
 servers:
-  - url: http://localhost:5001
+  - url: ilm-hub-an-online-exam-platform-server.vercel.app
     description: Local development server
 
 components:

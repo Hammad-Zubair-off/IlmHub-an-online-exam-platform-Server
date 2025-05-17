@@ -27,11 +27,16 @@ const dbConfig = require("./config/dbConfig");
 
 const usersRoute = require("./routes/usersRoute");
 const examsRoute = require("./routes/examsRoute");
-const resportsRoute = require("./routes/reportsRoute");
+const reportsRoute = require("./routes/reportsRoute");
+
+// Health check root route
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'Backend is running!' });
+});
 
 app.use("/api/users", usersRoute);
 app.use("/api/exams", examsRoute);
-app.use("/api/reports", resportsRoute);
+app.use("/api/reports", reportsRoute);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
