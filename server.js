@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const cors = require('cors');
 
 // Load .env file from root directory
-dotenv.config({ path: path.join(__dirname, '..', '.env') });
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 app.use(express.json());
@@ -15,8 +15,9 @@ app.use(express.json());
 // CORS configuration
 app.use(cors({
   origin: [
+    'https://ilm-hub-an-online-exam-platform.vercel.app',
     'http://localhost:3000',
-    'https://temp-red-gamma.vercel.app'  // Frontend URL
+    'https://temp-red-gamma.vercel.app/'  // Add your deployed client URL here
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
