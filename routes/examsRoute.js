@@ -49,7 +49,7 @@ router.get("/get-all-exams", authMiddleware, async (req, res) => {
 });
 
 // get exam by id
-router.get("/get-exam-by-id", authMiddleware, async (req, res) => {
+router.post("/get-exam-by-id", authMiddleware, async (req, res) => {
   try {
     const exam = await Exam.findById(req.body.examId).populate("questions");
     res.send({
