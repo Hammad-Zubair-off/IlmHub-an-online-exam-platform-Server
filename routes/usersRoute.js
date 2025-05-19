@@ -127,7 +127,7 @@ router.post("/admin-login", async (req, res) => {
         success: false,
       });
     }
-    const token = jwt.sign({ id: "admin" }, process.env.jwt_secret, {
+    const token = jwt.sign({ id: "admin" }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
     res.status(200).json({
